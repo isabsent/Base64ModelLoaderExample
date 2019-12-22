@@ -1,6 +1,5 @@
 package judds.github.com.base64modelloaderexample;
 
-import android.support.annotation.NonNull;
 import android.util.Base64;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
@@ -39,13 +38,11 @@ public class Base64DataFetcher implements DataFetcher<ByteBuffer> {
     // Intentionally empty.
   }
 
-  @NonNull
   @Override
   public Class<ByteBuffer> getDataClass() {
     return ByteBuffer.class;
   }
 
-  @NonNull
   @Override
   public DataSource getDataSource() {
     return DataSource.LOCAL;

@@ -1,11 +1,16 @@
 package judds.github.com.base64modelloaderexample;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Environment;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
   private static final String DATA_URI =
@@ -38,14 +43,19 @@ public class MainActivity extends AppCompatActivity {
           + "zGV90XP3tvHzDg5rj6sX99canqNzf3knmXV1K80z7QNzsSWOBwMknpVegAooooAKKKKACiiigAooooAKKKKACi"
           + "iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoo"
           + "ooA//2Q==";
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
     setContentView(R.layout.activity_main);
     ImageView imageView = findViewById(R.id.image_view);
+
+    FileEnveloper fileEnveloper = new FileEnveloper(new File(Environment.getExternalStorageDirectory() + "/00.zip"));
     Glide.with(this)
-        .load(DATA_URI)
-        .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
-        .into(imageView);
+//        .load(DATA_URI)
+            .load(fileEnveloper)
+            .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+            .into(imageView);
   }
 }
