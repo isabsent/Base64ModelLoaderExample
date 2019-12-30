@@ -30,6 +30,7 @@ public class FileDataFetcher implements DataFetcher<InputStream> {
 
             FileInputStream fin = new FileInputStream(fileEnveloper.getFile());
             ZipInputStream zin = new ZipInputStream(fin);
+            zin.getNextEntry();//Essential!!!
             callback.onDataReady(zin);
         } catch (IOException e) {
             e.printStackTrace();

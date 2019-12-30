@@ -12,6 +12,7 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.io.File;
 
+//https://bumptech.github.io/glide/tut/custom-modelloader.html
 public class MainActivity extends AppCompatActivity {
   private static final String DATA_URI =
       "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZ"
